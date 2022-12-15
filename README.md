@@ -1,6 +1,6 @@
 # CannonDebugReborn
 
-*Classic CannonDebug ported to modern minecraft versions!*
+*CannonDebugReborn with support for entropy optimisations and fragmentcore multi dispensers.*
 
 ## Supports
 
