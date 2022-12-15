@@ -123,18 +123,20 @@ public class WorldListener implements Listener {
         return returns;
     }
 
-    @EventHandler(priority = EventPriority.NORMAL)
+    @EventHandler(priority = EventPriority.HIGH)
     public void startProfiling(BlockDispenseEvent event) {
-        if (plugin.getConfiguration().alternativeTracking) {
-            return;
-        }
-        // Do nothing if block is not a dispenser.
-        Block block = event.getBlock();
-        if (!isDispenser(block.getType())) return;
+        if(!event.isCancelled()) {
+            if (plugin.getConfiguration().alternativeTracking) {
+                return;
+            }
+            // Do nothing if block is not a dispenser.
+            Block block = event.getBlock();
+            if (!isDispenser(block.getType())) return;
 
-        // Do nothing if not shot TNT.
-        if (!isExplosives(event.getItem().getType())) return;
-        if (doDispenserTracking(block, true, null)) event.setCancelled(true);
+            // Do nothing if not shot TNT.
+            if (!isExplosives(event.getItem().getType())) return;
+            if (doDispenserTracking(block, true, null)) event.setCancelled(true);
+        }
     }
 
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)

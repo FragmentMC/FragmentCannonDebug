@@ -92,7 +92,7 @@ public final class CannonDebugRebornPlugin extends JavaPlugin implements Runnabl
         getServer().getPluginManager().registerEvents(new MultiDispenserListener(), this);
         getServer().getScheduler().runTaskTimer(this, this, 1, 1);
 
-        // Load user profiles.
+        // Load user profiles.o
         for (Player player : getServer().getOnlinePlayers()) {
             users.put(player.getUniqueId(), new User(player));
         }
