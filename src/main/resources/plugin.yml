@@ -2,14 +2,14 @@ name: ${project.name}
 main: ${project.groupId}.${project.artifactId}.${project.name}Plugin
 version: ${project.version}
 author: [Sudzzy, jesus_is_hot]
-depend: [WorldEdit]
+depend: [WorldEdit, FragmentCore2]
 softdepend: [PlotSquared]
 api-version: 1.19
 
 commands:
   cannondebug:
     aliases: ["cd", "cannon", "c"]
-    description: CannonDebug ported to modern minecraft versions.
+    description: Custom CannonDebugReborn version for FragmentMC.
     usage: "§cIncorrect syntax. For help use /cannondebug"
     permission: cannondebug.user
     permission-message: '§cYou do not have permission to use that command.'

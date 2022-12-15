@@ -41,12 +41,15 @@ import org.originmc.cannondebug.utils.Configuration;
 import org.originmc.cannondebug.utils.EnumUtils;
 import org.originmc.cannondebug.utils.MaterialUtils;
 import org.originmc.cannondebug.utils.NumberUtils;
+import xyz.fragmentmc.uiwrapper.listener.EntityMergeListener;
+import xyz.fragmentmc.uiwrapper.listener.MultiDispenserListener;
 
 import java.util.*;
 
 import static org.bukkit.ChatColor.*;
 
 public final class CannonDebugRebornPlugin extends JavaPlugin implements Runnable {
+    public static CannonDebugRebornPlugin INSTANCE;
 
     @Getter
     private final Map<UUID, User> users = new HashMap<>();
@@ -58,9 +61,13 @@ public final class CannonDebugRebornPlugin extends JavaPlugin implements Runnabl
     private final List<EntityTracker> activeTrackers = new ArrayList<>();
 
     @Getter
+    private final Set<Integer> trackedEntities = new HashSet<>();
+
+    @Getter
     @Setter
     private long currentTick = 0;
 
+    @Getter
     private WorldListener worldListener;
 
     @Getter
@@ -76,10 +83,13 @@ public final class CannonDebugRebornPlugin extends JavaPlugin implements Runnabl
 
     @Override
     public void onEnable() {
+        INSTANCE = this;
         configuration = new Configuration(this);
         configuration.loadConfiguration();
         getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
         getServer().getPluginManager().registerEvents(worldListener = new WorldListener(this), this);
+        getServer().getPluginManager().registerEvents(new EntityMergeListener(), this);
+        getServer().getPluginManager().registerEvents(new MultiDispenserListener(), this);
         getServer().getScheduler().runTaskTimer(this, this, 1, 1);
 
         // Load user profiles.
@@ -103,6 +113,7 @@ public final class CannonDebugRebornPlugin extends JavaPlugin implements Runnabl
             // Remove dead entities from tracker.
             if (tracker.getEntity().isDead()) {
                 tracker.setDeathTick(currentTick);
+                trackedEntities.remove(tracker.getEntity().getEntityId());
                 tracker.setEntity(null);
                 iterator.remove();
             }

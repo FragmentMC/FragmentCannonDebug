@@ -126,6 +126,19 @@
             <artifactId>adventure-api</artifactId>
             <version>4.12.0</version>
         </dependency>
+        <dependency>
+            <groupId>xyz.fragmentmc.entropy</groupId>
+            <artifactId>entropy-api</artifactId>
+            <version>1.19.2-R0.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../EntropyJar/entropy-api/build/libs/entropy-api-1.19.2-R0.4.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>xyz.fragmentmc</groupId>
+            <artifactId>FragmentCoreAPI</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/../FragmentCoreAPI/target/FragmentCoreAPI-1.0.jar</systemPath>
+        </dependency>
     </dependencies>
-
 </project>
