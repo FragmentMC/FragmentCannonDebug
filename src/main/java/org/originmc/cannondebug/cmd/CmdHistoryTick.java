@@ -119,7 +119,7 @@ public final class CmdHistoryTick extends CommandExecutor {
                             new FancyMessage("Click here to teleport to this location").color(DARK_AQUA).style(BOLD),
                             new FancyMessage("LOCATION").color(YELLOW).style(BOLD),
                             new FancyMessage("X: ").color(WHITE).then("" + location.getX()).color(RED),
-                            new FancyMessage("Y: ").color(WHITE).then("" + location.getY()).color(RED).then("(Eye: " + location.getY() + 0.833 + ")").color(GRAY),
+                            new FancyMessage("Y: ").color(WHITE).then("" + location.getY()).color(RED).then("(Eye: " + (location.getY() + 0.833) + ")").color(GRAY),
                             new FancyMessage("Z: ").color(WHITE).then("" + location.getZ()).color(RED),
                             new FancyMessage(""),
                             new FancyMessage("VELOCITY").color(YELLOW).style(BOLD),
