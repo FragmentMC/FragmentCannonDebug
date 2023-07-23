@@ -129,9 +129,9 @@
         <dependency>
             <groupId>xyz.fragmentmc.entropy</groupId>
             <artifactId>entropy-api</artifactId>
-            <version>1.19.2-R0.4</version>
+            <version>1.20.1-R0.9</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/../EntropyJar/entropy-api/build/libs/entropy-api-1.19.2-R0.4.jar</systemPath>
+            <systemPath>${project.basedir}/../EntropyJar/entropy-api/build/libs/entropy-api-1.20.1-R0.9.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>xyz.fragmentmc</groupId>
