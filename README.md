@@ -5,8 +5,8 @@
 ## Supports
 
 * WorldEdit 7
-* PlotSquared 6
-* Paper & Forks 1.19.x
+* PlotSquared 7
+* Paper & Forks 1.20.x
 
 ## Features
 

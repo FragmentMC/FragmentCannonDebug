@@ -4,7 +4,7 @@ version: ${project.version}
 author: [Sudzzy, jesus_is_hot]
 depend: [WorldEdit, FragmentCore2]
 softdepend: [PlotSquared]
-api-version: 1.19
+api-version: 1.20
 
 commands:
   cannondebug:
